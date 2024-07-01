@@ -1,4 +1,5 @@
 services:
+
   app:
     container_name: app
     build:
@@ -29,7 +30,7 @@ services:
       PGDATA: /data/postgres
       TZ: Asia/Tehran
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DB_NAME}"]
+      test: ["CMD-SHELL", "pg_isready -d ${DB_NAME} -U ${DB_USERNAME}"]
       interval: 5s
       timeout: 5s
       retries: 5
